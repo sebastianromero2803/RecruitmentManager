@@ -1,0 +1,37 @@
+2022-05-26 14:50:20.839 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-26 14:50:20.861 -05:00 [INF] Hosting environment: Development
+2022-05-26 14:50:20.862 -05:00 [INF] Content root path: C:\Users\SEBASTIAN ROMERO\LeanTech\Backend Training\Projects\WebApplication1
+2022-05-26 14:50:20.862 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:29393/swagger/index.html - -
+2022-05-26 14:50:21.159 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:29393/swagger/index.html - - - 200 - text/html;charset=utf-8 298.8859ms
+2022-05-26 14:50:21.209 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:29393/_framework/aspnetcore-browser-refresh.js - -
+2022-05-26 14:50:21.224 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:29393/_framework/aspnetcore-browser-refresh.js - - - 200 12024 application/javascript;+charset=utf-8 14.3387ms
+2022-05-26 14:50:21.479 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:29393/_vs/browserLink - -
+2022-05-26 14:50:21.562 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:29393/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.9978ms
+2022-05-26 14:50:21.792 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:29393/swagger/v1/swagger.json - -
+2022-05-26 14:50:21.991 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:29393/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 198.3013ms
+2022-05-26 14:50:28.826 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:29393/api/Client - -
+2022-05-26 14:50:28.871 -05:00 [INF] Executing endpoint 'RecruitmentManager.Services.Controllers.ClientController.Get (RecruitmentManager.Services)'
+2022-05-26 14:50:28.899 -05:00 [INF] Route matched with {action = "Get", controller = "Client"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RecruitmentManager.Entities.Entities.Client]]] Get() on controller RecruitmentManager.Services.Controllers.ClientController (RecruitmentManager.Services).
+2022-05-26 14:50:30.199 -05:00 [ERR] Service: GetClientAsync, Message: Invalid object name 'Client'., InnerMessage: 
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Client'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at RecruitmentManager.Core.Core.V1.ClientCore.GetClientsAsync() in C:\Users\SEBASTIAN ROMERO\LeanTech\Backend Training\Projects\RecruitmentManager.Core\Core\V1\ClientCore.cs:line 34
+ClientConnectionId:3da4fa8b-40b3-4a0e-989e-b12b21cfe651
+Error Number:208,State:1,Class:16
+2022-05-26 14:50:30.246 -05:00 [INF] Executing ObjectResult, writing value of type 'RecruitmentManager.Entities.Utils.ResponseService`1[[System.Collections.Generic.List`1[[RecruitmentManager.Entities.Entities.Client, RecruitmentManager.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-05-26 14:50:30.267 -05:00 [INF] Executed action RecruitmentManager.Services.Controllers.ClientController.Get (RecruitmentManager.Services) in 1362.561ms
+2022-05-26 14:50:30.272 -05:00 [INF] Executed endpoint 'RecruitmentManager.Services.Controllers.ClientController.Get (RecruitmentManager.Services)'
+2022-05-26 14:50:30.272 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:29393/api/Client - - - 500 - application/json;+charset=utf-8 1446.1798ms
