@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
@@ -14,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RecruitmentManager.Core\RecruitmentManager.Core.csproj" />
     <ProjectReference Include="..\RecruitmentManager.Entities\RecruitmentManager.Entities.csproj" />
+    <ProjectReference Include="..\RecruitmentManger.Repositories\RecruitmentManger.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

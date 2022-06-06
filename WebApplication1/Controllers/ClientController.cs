@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RecruitmentManager.Contracts.Repository;
 using RecruitmentManager.Core.Core.V1;
 using RecruitmentManager.Entities.DTOs;
 using RecruitmentManager.Entities.Entities;
@@ -16,9 +18,9 @@ namespace RecruitmentManager.Services.Controllers
     {
         private readonly ClientCore _clientCore;
 
-        public ClientController(ILogger<Client> logger)
+        public ClientController(ILogger<Client> logger, IMapper mapper, IClientRepository context)
         {
-            _clientCore = new ClientCore(logger);
+            _clientCore = new ClientCore(logger, mapper, context);
         }
 
         // GET: api/<ClientController>
@@ -46,15 +48,10 @@ namespace RecruitmentManager.Services.Controllers
 
         // PUT api/<ClientController>/5
         [HttpPut]
-        public async Task<bool> Put([FromBody] Client client)
+        public async Task<ActionResult<bool>> Put([FromBody] Client client)
         {
-            return await _clientCore.UpdateClientAsync(client);
-        }
-
-        // DELETE api/<ClientController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var response = await _clientCore.UpdateClientAsync(client);
+            return StatusCode((int)response.StatusHttp, response);
         }
     }
 }

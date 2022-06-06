@@ -1,15 +1,15 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using RecruitmentManager.Contracts.Repository;
+using RecruitmentManager.Core.Core.Mapping;
+using RecruitmentManager.DataAccess.Context;
+using RecruitmentManger.Repositories.ImplementRepositories;
 
 namespace WebApplication1
 {
@@ -31,6 +31,21 @@ namespace WebApplication1
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
             });
+
+            var mappingConfig = new MapperConfiguration( mc  =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddDbContext<SqlServerContext>(op =>
+            {
+                op.UseSqlServer(Configuration.GetConnectionString("Default"));
+            });
+
+            services.AddTransient<IClientRepository, ClientRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
